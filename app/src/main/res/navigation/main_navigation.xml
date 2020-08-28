@@ -5,11 +5,20 @@
     android:id="@+id/main_navigation"
     app:startDestination="@id/homeFragment">
 
+    <activity
+        android:id="@+id/profileActivity"
+        android:name="com.ihfazh.dicodingnavigation.ProfileActivity"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.dicoding.com/profile" />
+    </activity>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ihfazh.dicodingnavigation.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_categoryFragment"
             app:destination="@id/categoryFragment" />
@@ -18,31 +27,26 @@
             app:destination="@id/profileActivity" />
     </fragment>
     <fragment
-        android:id="@+id/categoryFragment"
-        android:name="com.ihfazh.dicodingnavigation.CategoryFragment"
-        android:label="fragment_category"
-        tools:layout="@layout/fragment_category" >
-        <action
-            android:id="@+id/action_categoryFragment_to_detailCategoryFragment"
-            app:destination="@id/detailCategoryFragment" />
-    </fragment>
-    <activity
-        android:id="@+id/profileActivity"
-        android:name="com.ihfazh.dicodingnavigation.ProfileActivity"
-        android:label="activity_profile"
-        tools:layout="@layout/activity_profile" />
-    <fragment
         android:id="@+id/detailCategoryFragment"
         android:name="com.ihfazh.dicodingnavigation.DetailCategoryFragment"
         android:label="fragment_detail_category"
-        tools:layout="@layout/fragment_detail_category" >
+        tools:layout="@layout/fragment_detail_category">
         <argument
             android:name="Name"
-            app:argType="string"
-            android:defaultValue="Category" />
+            android:defaultValue="Category"
+            app:argType="string" />
         <argument
             android:name="Description"
-            app:argType="string"
-            android:defaultValue="Ini adalah deskripsi" />
+            android:defaultValue="Ini adalah deskripsi"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.ihfazh.dicodingnavigation.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_detailCategoryFragment"
+            app:destination="@id/detailCategoryFragment" />
     </fragment>
 </navigation>
