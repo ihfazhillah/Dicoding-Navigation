@@ -39,6 +39,9 @@
             android:name="Description"
             android:defaultValue="Ini adalah deskripsi"
             app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://ihfazh.com/detail/{Name}/{Description}" />
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
