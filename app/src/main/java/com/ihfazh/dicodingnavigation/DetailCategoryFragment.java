@@ -5,30 +5,29 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CategoryFragment#newInstance} factory method to
+ * Use the {@link DetailCategoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CategoryFragment extends Fragment {
+public class DetailCategoryFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    public static final String EXTRA_NAME = "extra name";
+    public static final String EXTRA_DESCRIPTION = "extra description";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private String mName;
     private String mParam2;
 
-    public CategoryFragment() {
+    public DetailCategoryFragment() {
         // Required empty public constructor
     }
 
@@ -38,14 +37,14 @@ public class CategoryFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CategoryFragment.
+     * @return A new instance of fragment DetailCategoryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CategoryFragment newInstance(String param1, String param2) {
-        CategoryFragment fragment = new CategoryFragment();
+    public static DetailCategoryFragment newInstance(String param1, String param2) {
+        DetailCategoryFragment fragment = new DetailCategoryFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(EXTRA_NAME, param1);
+        args.putString(EXTRA_DESCRIPTION, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,8 +53,8 @@ public class CategoryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mName = getArguments().getString(EXTRA_NAME);
+            mParam2 = getArguments().getString(EXTRA_DESCRIPTION);
         }
     }
 
@@ -63,22 +62,17 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        return inflater.inflate(R.layout.fragment_detail_category, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView tvName, tvDescription;
+        tvName = view.findViewById(R.id.tv_category_name);
+        tvDescription = view.findViewById(R.id.tv_category_description);
 
-        Button btnCategoryLifestyle = view.findViewById(R.id.btn_category_lifestyle);
-        btnCategoryLifestyle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle mBundle = new Bundle();
-                mBundle.putString(DetailCategoryFragment.EXTRA_NAME, "Lifestyle");
-                mBundle.putString(DetailCategoryFragment.EXTRA_DESCRIPTION, "Ini adalah kategory lifestyle, ada 3 stock tersedia.");
-                Navigation.findNavController(view).navigate(R.id.action_categoryFragment_to_detailCategoryFragment, mBundle);
-            }
-        });
+        tvName.setText(mName);
+        tvDescription.setText(mParam2);
     }
 }

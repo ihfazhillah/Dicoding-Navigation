@@ -6,4 +6,7 @@
     <string name="to_category">To Category</string>
     <string name="ini_adalah_category">Ini Adalah Category</string>
     <string name="ini_adalah_halaman_profile">Ini adalah halaman profile</string>
+    <string name="category_lifestyle">Category Lifestyle</string>
+    <string name="category_name">Category Name</string>
+    <string name="category_description">Category Description</string>
 </resources>
