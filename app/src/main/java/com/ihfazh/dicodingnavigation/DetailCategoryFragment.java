@@ -53,8 +53,8 @@ public class DetailCategoryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mName = getArguments().getString(EXTRA_NAME);
-            mParam2 = getArguments().getString(EXTRA_DESCRIPTION);
+            mName = DetailCategoryFragmentArgs.fromBundle(getArguments()).getName();
+            mParam2 = DetailCategoryFragmentArgs.fromBundle(getArguments()).getDescription();
         }
     }
 

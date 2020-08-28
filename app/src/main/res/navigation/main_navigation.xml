@@ -35,5 +35,14 @@
         android:id="@+id/detailCategoryFragment"
         android:name="com.ihfazh.dicodingnavigation.DetailCategoryFragment"
         android:label="fragment_detail_category"
-        tools:layout="@layout/fragment_detail_category" />
+        tools:layout="@layout/fragment_detail_category" >
+        <argument
+            android:name="Name"
+            app:argType="string"
+            android:defaultValue="Category" />
+        <argument
+            android:name="Description"
+            app:argType="string"
+            android:defaultValue="Ini adalah deskripsi" />
+    </fragment>
 </navigation>
