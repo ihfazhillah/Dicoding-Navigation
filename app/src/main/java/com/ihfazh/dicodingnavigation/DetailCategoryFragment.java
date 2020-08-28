@@ -5,10 +5,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -74,5 +76,10 @@ public class DetailCategoryFragment extends Fragment {
 
         tvName.setText(mName);
         tvDescription.setText(mParam2);
+
+        Button backToHomeBtn = view.findViewById(R.id.back_to_home);
+        backToHomeBtn.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.action_detailCategoryFragment_to_homeFragment)
+        );
     }
 }
